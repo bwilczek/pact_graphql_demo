@@ -19,8 +19,7 @@ cd client ; PORT=3001 yarn start
 curl -H 'Accept: application/json' http://localhost:3000/authors/1/books
 
 # testing GraphQL using curl
-curl -XPOST -d 'query=query {book(id:1){title author {name}}}' http://localhost:3000/graphql
-curl -XPOST -d 'query=query {author(id:2) {name books {title}}}' http://localhost:3000/graphql
+curl -XPOST -d '{"operationName":null,"variables":{},"query":"{ author(id: 2) {name __typename}}"}' http://localhost:3000/graphql
 
 # testing GraphQL in the rails console
 PactGraphqlDemoSchema.execute('{book(id:1){title author {name}}}')['data']['book']['author']['name']

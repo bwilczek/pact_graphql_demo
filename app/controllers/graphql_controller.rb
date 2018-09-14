@@ -1,8 +1,10 @@
 class GraphqlController < ApplicationController
   def execute
-    variables = ensure_hash(params[:variables])
-    query = params[:query]
-    operation_name = params[:operationName]
+    body = request.body.read
+    parsed_body = JSON.parse(body)
+    variables = ensure_hash(parsed_body['variables'])
+    query = parsed_body['query']
+    operation_name = parsed_body['operationName']
     context = {
       # Query context goes here, for example:
       # current_user: current_user,
