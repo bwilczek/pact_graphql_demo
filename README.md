@@ -1,24 +1,21 @@
-# README
+# Demo for contract testing
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Components:
 
-Things you may want to cover:
+* Rails GraphQL backend (provider)
+* Webpack/React frontend (consumer)
+* Contact testing with `pact`
 
-* Ruby version
+```
+# testing REST API
+curl -H 'Accept: application/json' http://localhost:3000/authors/1/books
 
-* System dependencies
+# testing GraphQL using curl
+curl -XPOST -d 'query=query {book(id:1){title author {name}}}' http://localhost:3000/graphql
+curl -XPOST -d 'query=query {author(id:2) {name books {title}}}' http://localhost:3000/graphql
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# testing GraphQL in the rails console
+PactGraphqlDemoSchema.execute('{book(id:1){title author {name}}}')['data']['book']['author']['name']
+PactGraphqlDemoSchema.execute('{book(id:1){title author {name books {title}}}}')['data']['book']['author']['books'][1]['title']
+PactGraphqlDemoSchema.execute('{author(id:2) {name books {title}}}')['data']['author']['books'][1]['title']
+```
