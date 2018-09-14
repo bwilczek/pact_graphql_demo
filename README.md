@@ -6,6 +6,14 @@ Components:
 * Webpack/React frontend (consumer)
 * Contact testing with `pact`
 
+Running it:
+```
+# backend
+bundle exec rails s
+# frontend
+cd client ; PORT=3001 yarn start
+```
+
 ```
 # testing REST API
 curl -H 'Accept: application/json' http://localhost:3000/authors/1/books
