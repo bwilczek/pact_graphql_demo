@@ -5,16 +5,18 @@
   "dependencies": {
     "apollo-boost": "^0.1.16",
     "graphql": "^14.0.2",
+    "node-fetch": "^2.2.0",
     "react": "^16.5.1",
     "react-apollo": "^2.1.11",
     "react-dom": "^16.5.1",
-    "react-scripts": "1.1.5"
+    "react-scripts": "1.1.5",
+    "react-test-renderer": "^16.5.2"
   },
   "proxy": "http://localhost:3000",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "react-scripts test --env=node",
     "eject": "react-scripts eject"
   }
 }

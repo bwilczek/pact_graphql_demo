@@ -1,34 +1,18 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { Author } from './Author';
 import ApolloClient from "apollo-boost";
-import { ApolloProvider, Query } from "react-apollo";
-import gql from "graphql-tag";
+import { ApolloProvider } from "react-apollo";
+import fetch from 'node-fetch'
 
 const client = new ApolloClient({
-  // uri: "http://localhost:3000/graphql",
-  uri: "/graphql",
+  uri: "http://localhost:3000/graphql",
+  fetch: fetch,
   fetchOptions: {
     mode: 'no-cors'
   }
 });
-
-const Author = () => (
-  <Query query={gql`query { author(id: 1) { name books {title} } }`} >
-    {({ loading, error, data }) => {
-      if (loading) return (<div>Loading...</div>);
-      if (error) return (<div>Error :(</div>);
-      return (
-        <div>
-          <div>{data.author.name}</div>
-          <ul>
-            { data.author.books.map( ({title}) => (<li key={title}>{title}</li>) ) }
-          </ul>
-        </div>
-      )
-    }}
-  </Query>
-);
 
 class App extends Component {
   render() {
@@ -40,7 +24,7 @@ class App extends Component {
             <h1 className="App-title">Welcome to React</h1>
           </header>
           <div className="App-intro">
-            <Author />
+            <Author id={1}/>
           </div>
         </div>
       </ApolloProvider>
