@@ -7,7 +7,7 @@ import { ApolloProvider } from "react-apollo";
 import fetch from 'node-fetch'
 
 const client = new ApolloClient({
-  uri: "http://localhost:3000/graphql",
+  uri: "http://localhost:3001/graphql",
   fetch: fetch,
   fetchOptions: {
     mode: 'no-cors'

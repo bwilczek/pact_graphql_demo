@@ -14,6 +14,9 @@ bundle exec rails s
 cd client ; PORT=3001 yarn start
 ```
 
+See the UI at [http://localhost:3001](http://localhost:3001)
+
+Smoke tests: 
 ```
 # testing REST API
 curl -H 'Accept: application/json' http://localhost:3000/authors/1/books
@@ -25,4 +28,16 @@ curl -XPOST -d '{"operationName":null,"variables":{},"query":"{ author(id: 2) {n
 PactGraphqlDemoSchema.execute('{book(id:1){title author {name}}}')['data']['book']['author']['name']
 PactGraphqlDemoSchema.execute('{book(id:1){title author {name books {title}}}}')['data']['book']['author']['books'][1]['title']
 PactGraphqlDemoSchema.execute('{author(id:2) {name books {title}}}')['data']['author']['books'][1]['title']
+```
+
+Proper tests:
+```
+# frontend, use MockedProvider for GraphQL
+cd client; CI=true yarn test src/Author.test.js
+
+# frontend, generate pact file
+# TODO cd client; CI=true yarn test src/Author.pact.test.js
+
+# backend, verify pact file
+# TODO
 ```

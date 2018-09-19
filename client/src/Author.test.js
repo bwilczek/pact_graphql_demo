@@ -9,13 +9,13 @@ let mocks = [
     request: {
       query: GET_AUTHOR_QUERY,
       variables: {
-        id: 2,
+        id: 6,
       },
     },
     result: {
       data: {
         author: {
-          id: 2,
+          id: 6,
           name: 'Halina Kowal',
           books: [
             { title: 'C++ for dummies' },
@@ -30,7 +30,7 @@ let mocks = [
 it('renders without crashing', async () => {
   const component = TestRenderer.create(
     <MockedProvider mocks={mocks} addTypename={false}>
-      <Author id={2} />
+      <Author id={6} />
     </MockedProvider>
   )
 
