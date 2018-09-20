@@ -2,7 +2,8 @@ import React from 'react';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 
-export const GET_AUTHOR_QUERY = gql`query getAuthor($id: ID) { author(id: $id) { name books {title} } }`
+export const GET_AUTHOR_RAW_QUERY = `query ($id: ID) { author(id: $id) { name books {title} } }`
+export const GET_AUTHOR_QUERY = gql`${GET_AUTHOR_RAW_QUERY}`
 
 export const Author = ({id}) => (
   <Query query={GET_AUTHOR_QUERY} variables={{id}}>

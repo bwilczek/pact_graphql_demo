@@ -1,0 +1,51 @@
+{
+  "consumer": {
+    "name": "AuthorConsumer"
+  },
+  "provider": {
+    "name": "AuthorProvider"
+  },
+  "interactions": [
+    {
+      "description": "query getAuthor",
+      "request": {
+        "method": "POST",
+        "path": "/graphql",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "body": {
+          "operationName": "query",
+          "query": "query query($id: ID) {\n  author(id: $id) {\n    name\n    books {\n      title\n      __typename\n    }\n    __typename\n  }\n}\n",
+          "variables": {
+            "id": 1
+          }
+        },
+        "matchingRules": {
+          "$.body.query": {
+            "match": "regex",
+            "regex": "query\\s*query\\(\\$id:\\s*ID\\)\\s*\\{\\s*author\\(id:\\s*\\$id\\)\\s*\\{\\s*name\\s*books\\s*\\{\\s*title\\s*__typename\\s*\\}\\s*__typename\\s*\\}\\s*\\}\\s*"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        },
+        "body": {
+          "data": {
+            "author": {
+              "name": "Olga Tokarczuk"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}

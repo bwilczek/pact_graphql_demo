@@ -1,8 +1,8 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer'
-import { Author, GET_AUTHOR_QUERY }from './Author'
+import { Author, GET_AUTHOR_QUERY } from './Author'
 import { MockedProvider } from 'react-apollo/test-utils'
-const wait = require('waait');
+import wait from 'waait'
 
 let mocks = [
   {
