@@ -36,7 +36,7 @@ Proper tests:
 cd client; CI=true yarn test src/Author.test.js
 
 # frontend, generate pact file
-# TODO cd client; CI=true yarn test src/Author.pact.test.js
+# cd client; CI=true yarn test src/Author.pact.test.js
 
 # backend, verify pact file
 # TODO

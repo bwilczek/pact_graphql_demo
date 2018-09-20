@@ -36,14 +36,7 @@
         "body": {
           "data": {
             "author": {
-              "name": "Olga Tokarczuk",
-              "__typename": "Author",
-              "books": [
-                {
-                  "title": "Prawiek i inne czasy",
-                  "__typename": "Book"
-                }
-              ]
+              "name": "Olga Tokarczuk"
             }
           }
         }

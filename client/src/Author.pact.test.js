@@ -3,11 +3,8 @@ import path from 'path'
 import { Author, GET_AUTHOR_QUERY, GET_AUTHOR_RAW_QUERY } from './Author'
 
 import React from 'react';
-import TestRenderer from 'react-test-renderer'
-import wait from 'waait'
 
 import ApolloClient from "apollo-boost";
-import { ApolloProvider } from "react-apollo";
 import fetch from 'node-fetch'
 
 import { print as printQL } from 'graphql/language/printer'
@@ -26,9 +23,10 @@ const provider = new Pact({
   port: 3002,
   log: path.resolve(process.cwd(), '../log', 'pact.log'),
   dir: path.resolve(process.cwd(), '../pacts'),
-  logLevel: 'error',
+  logLevel: 'warn',
   spec: 2
 })
+
 
 const graphqlQueryInteraction = new GraphQLInteraction()
   .uponReceiving('query getAuthor')
@@ -49,7 +47,14 @@ const graphqlQueryInteraction = new GraphQLInteraction()
     body: {
       data: {
         author: {
-          name: 'Olga Tokarczuk'
+          name: 'Olga Tokarczuk',
+          __typename: 'Author',
+          books: [
+            {
+              title: 'Prawiek i inne czasy',
+              __typename: 'Book'
+            }
+          ]
         }
       },
     },
@@ -60,23 +65,21 @@ describe('Pact with Author Provider', () => {
     return provider.setup()
       .then(() => {
         provider.addInteraction(graphqlQueryInteraction)
+        // console.log('interaction added')
       })
-      .then(() => done());
+      .then(() => {
+        // console.log('provider setup done')
+        done()
+      });
   })
 
-  it('renders and saves pact file', async () => {
-    const component = TestRenderer.create(
-      <ApolloProvider client={client}>
-        <Author id={1} />
-      </ApolloProvider>
-    )
-
-    await wait(0)
-
-    return provider.verify()
+  it('saves pact file', async () => {
+    const _result = await client.query({query: GET_AUTHOR_QUERY, variables: {id: 1}, operationName: 'query'})
+    provider.verify()
   })
 
   afterAll(() => {
+    // console.log('provider finalized')
     return provider.finalize()
   })
 })
