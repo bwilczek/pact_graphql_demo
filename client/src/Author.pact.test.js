@@ -1,21 +1,10 @@
 import { GraphQLInteraction, Pact, Matchers } from '@pact-foundation/pact'
 import path from 'path'
-import { Author, GET_AUTHOR_QUERY, GET_AUTHOR_RAW_QUERY } from './Author'
-
-import React from 'react';
-
 import ApolloClient from "apollo-boost";
 import fetch from 'node-fetch'
-
 import { print as printQL } from 'graphql/language/printer'
 
-const client = new ApolloClient({
-  uri: "http://localhost:3002/graphql",
-  fetch: fetch,
-  fetchOptions: {
-    mode: 'no-cors'
-  }
-});
+import { Author, GET_AUTHOR_QUERY } from './Author'
 
 const provider = new Pact({
   consumer: 'AuthorConsumer',
@@ -27,6 +16,13 @@ const provider = new Pact({
   spec: 2
 })
 
+const client = new ApolloClient({
+  uri: "http://localhost:3002/graphql",
+  fetch: fetch,
+  fetchOptions: {
+    mode: 'no-cors'
+  }
+});
 
 const graphqlQueryInteraction = new GraphQLInteraction()
   .uponReceiving('query getAuthor')

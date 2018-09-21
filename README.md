@@ -41,3 +41,12 @@ cd client; CI=true yarn test src/Author.pact.test.js
 # backend, verify pact file, rails server has to be running
 rake pact:verify
 ```
+
+#### Resources ####
+
+* [Testing Pact Provider (Ruby)](https://github.com/pact-foundation/pact-ruby)
+* [Testing Pact Subscriber (JS): Interactions, Matchers](https://github.com/pact-foundation/pact-js)
+* [Testing Apollo GraphQL client](https://www.apollographql.com/docs/guides/testing-react-components.html#MockedProvider)
+* [Testing promises with JestJS](https://jestjs.io/docs/en/tutorial-async)
+* [Defining GraphQLInteraction for Pact JS](http://blog.pact.io/2018/07/24/contract-testing-a-graphql-api/)
+* [GraphQL backend with Rails](http://graphql-ruby.org/getting_started)
