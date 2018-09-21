@@ -1,4 +1,4 @@
-import { GraphQLInteraction, Pact } from '@pact-foundation/pact'
+import { GraphQLInteraction, Pact, Matchers } from '@pact-foundation/pact'
 import path from 'path'
 import { Author, GET_AUTHOR_QUERY, GET_AUTHOR_RAW_QUERY } from './Author'
 
@@ -47,14 +47,14 @@ const graphqlQueryInteraction = new GraphQLInteraction()
     body: {
       data: {
         author: {
-          name: 'Olga Tokarczuk',
-          __typename: 'Author',
-          books: [
+          name: Matchers.like('Kasia'),
+          __typename: Matchers.like('Author'),
+          books: Matchers.eachLike(
             {
               title: 'Prawiek i inne czasy',
               __typename: 'Book'
             }
-          ]
+          )
         }
       },
     },
@@ -65,10 +65,8 @@ describe('Pact with Author Provider', () => {
     return provider.setup()
       .then(() => {
         provider.addInteraction(graphqlQueryInteraction)
-        // console.log('interaction added')
       })
       .then(() => {
-        // console.log('provider setup done')
         done()
       });
   })
@@ -78,8 +76,7 @@ describe('Pact with Author Provider', () => {
     provider.verify()
   })
 
-  afterAll(() => {
-    // console.log('provider finalized')
-    return provider.finalize()
-  })
+  afterAll((done) => {
+    provider.finalize().then(() => done());
+  });
 })
