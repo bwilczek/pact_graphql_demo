@@ -48,7 +48,7 @@ const graphqlQueryInteraction = new GraphQLInteraction()
       data: {
         author: {
           name: Matchers.like('Kasia'),
-          __typename: Matchers.like('Author'),
+          __typename: 'Author',
           books: Matchers.eachLike(
             {
               title: 'Prawiek i inne czasy',

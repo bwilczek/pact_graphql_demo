@@ -51,9 +51,6 @@
           "$.body.data.author.name": {
             "match": "type"
           },
-          "$.body.data.author.__typename": {
-            "match": "type"
-          },
           "$.body.data.author.books": {
             "min": 1
           },

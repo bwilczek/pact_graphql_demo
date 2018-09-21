@@ -36,8 +36,8 @@ Proper tests:
 cd client; CI=true yarn test src/Author.test.js
 
 # frontend, generate pact file
-# cd client; CI=true yarn test src/Author.pact.test.js
+cd client; CI=true yarn test src/Author.pact.test.js
 
-# backend, verify pact file
-# TODO
+# backend, verify pact file, rails server has to be running
+rake pact:verify
 ```
