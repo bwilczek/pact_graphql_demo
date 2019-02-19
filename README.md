@@ -8,15 +8,22 @@ Components:
 
 Running it:
 ```
-# backend
+# backend setup
+bundle install
+bundle exec ./bin/rails db:migrate
+bundle exec ./bin/rails db:seed
+# backend start
 bundle exec rails s
-# frontend
-cd client ; PORT=3001 yarn start
+# frontend setup
+cd client
+yarn install
+# frontend start
+PORT=3001 yarn start
 ```
 
 See the UI at [http://localhost:3001](http://localhost:3001)
 
-Smoke tests: 
+Smoke tests:
 ```
 # testing REST API
 curl -H 'Accept: application/json' http://localhost:3000/authors/1/books
