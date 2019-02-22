@@ -1,10 +1,10 @@
 # For assistance debugging failures
 
 * The pact files have been stored locally in the following temp directory:
-    /home/bwilczek/work/pact_graphql_demo/tmp/pacts
+    /home/bwilczek/work/toptal/pact_graphql_demo/tmp/pacts
 
 * The requests and responses are logged in the following log file:
-    /home/bwilczek/work/pact_graphql_demo/log/pact.log
+    /home/bwilczek/work/toptal/pact_graphql_demo/log/pact.log
 
 * Add BACKTRACE=true to the `rake pact:verify` command to see the full backtrace
 
@@ -22,3 +22,6 @@
 * Ask a question on stackoverflow and tag it `pact-ruby`
 
 
+The following changes have been made since the previous distinct version of this pact, and may be responsible for verification failure:
+
+No previous distinct version was found for Pact between AuthorConsumer (vv0.1.0) and AuthorProvider

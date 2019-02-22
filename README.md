@@ -6,17 +6,26 @@ Components:
 * Webpack/React frontend (consumer)
 * Contact testing with `pact`
 
-Running it:
+Pre-requisites:
 ```
-# backend setup
+# pact-broker on port 8080:
+# see https://github.com/pact-foundation/pact_broker#to-have-a-play-around-on-your-local-machine
+
+# provider
 bundle install
 bundle exec ./bin/rails db:migrate
 bundle exec ./bin/rails db:seed
-# backend start
-bundle exec rails s
-# frontend setup
+
+# consumer
 cd client
 yarn install
+```
+
+Running it:
+```
+# backend start
+bundle exec rails s
+
 # frontend start
 PORT=3001 yarn start
 ```
@@ -45,7 +54,10 @@ cd client; CI=true yarn test src/Author.test.js
 # frontend, generate pact file
 cd client; CI=true yarn test src/Author.pact.test.js
 
-# backend, verify pact file, rails server has to be running
+# frontent, publish pact file
+cd client; yarn publish-pact
+
+# backend, verify pact (from broker), rails server has to be running
 rake pact:verify
 ```
 

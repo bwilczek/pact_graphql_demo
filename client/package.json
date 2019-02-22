@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@pact-foundation/pact": "^6.0.1",
+    "@pact-foundation/pact-node": "^6.21.4",
     "apollo-boost": "^0.1.16",
     "graphql": "^14.0.2",
     "node-fetch": "^2.2.0",
-    "@pact-foundation/pact": "^6.0.1",
     "path": "^0.12.7",
     "react": "^16.5.1",
     "react-apollo": "^2.1.11",
@@ -20,6 +21,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=node",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "publish-pact": "scripts/publish_pact.js"
   }
 }

@@ -26,6 +26,27 @@
     unixify "1.0.0"
     url-join "^4.0.0"
 
+"@pact-foundation/pact-node@^6.21.4":
+  version "6.21.4"
+  resolved "https://registry.yarnpkg.com/@pact-foundation/pact-node/-/pact-node-6.21.4.tgz#cf3d6d8ab01e214d73da4b627c1f5441d78e6e2d"
+  dependencies:
+    "@types/q" "1.0.7"
+    bunyan "1.8.12"
+    bunyan-prettystream "0.1.3"
+    caporal "1.1.0"
+    chalk "2.3.1"
+    check-types "7.3.0"
+    decompress "4.2.0"
+    mkdirp "0.5.1"
+    q "1.5.1"
+    request "2.87.0"
+    rimraf "2.6.2"
+    sumchecker "^2.0.2"
+    tar "4.4.0"
+    underscore "1.8.3"
+    unixify "1.0.0"
+    url-join "^4.0.0"
+
 "@pact-foundation/pact@^6.0.1":
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/@pact-foundation/pact/-/pact-6.0.1.tgz#d9af432a33af7a347bd6b682805ae6408944f1a3"
@@ -1652,6 +1673,22 @@ caporal@0.10.0:
     tabtab "^2.2.2"
     winston "^2.3.1"
 
+caporal@1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/caporal/-/caporal-1.1.0.tgz#834fd2348ab6ae79171a023a975ccc6f04620533"
+  dependencies:
+    bluebird "^3.4.7"
+    cli-table3 "^0.5.0"
+    colorette "1.0.1"
+    fast-levenshtein "^2.0.6"
+    lodash.camelcase "^4.3.0"
+    lodash.kebabcase "^4.1.1"
+    lodash.merge "^4.6.0"
+    micromist "1.1.0"
+    prettyjson "^1.2.1"
+    tabtab "^2.2.2"
+    winston "^2.3.1"
+
 capture-stack-trace@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/capture-stack-trace/-/capture-stack-trace-1.0.1.tgz#a6c0bbe1f38f3aa0b92238ecb6ff42c344d4135d"
@@ -1800,6 +1837,15 @@ cli-table2@^0.2.0:
   optionalDependencies:
     colors "^1.1.2"
 
+cli-table3@^0.5.0:
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/cli-table3/-/cli-table3-0.5.1.tgz#0252372d94dfc40dbd8df06005f48f31f656f202"
+  dependencies:
+    object-assign "^4.1.0"
+    string-width "^2.1.1"
+  optionalDependencies:
+    colors "^1.1.2"
+
 cli-width@^2.0.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/cli-width/-/cli-width-2.2.0.tgz#ff19ede8a9a5e579324147b0c11f0fbcbabed639"
@@ -1868,6 +1914,10 @@ color@^0.11.0:
     clone "^1.0.2"
     color-convert "^1.3.0"
     color-string "^0.3.0"
+
+colorette@1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/colorette/-/colorette-1.0.1.tgz#434bad4bd70969c075162fec86ca55da36bf837c"
 
 colormin@^1.0.5:
   version "1.1.2"
@@ -5078,6 +5128,12 @@ micromatch@^3.1.10, micromatch@^3.1.4:
     snapdragon "^0.8.1"
     to-regex "^3.0.2"
 
+micromist@1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/micromist/-/micromist-1.1.0.tgz#a490bcf9a4b918ad9eed8e52d0ec98b9c3b2d3c8"
+  dependencies:
+    lodash.camelcase "^4.3.0"
+
 micromist@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/micromist/-/micromist-1.0.2.tgz#41f84949a04c30cdc60a394d0cb06aaa08b86364"
@@ -6605,6 +6661,31 @@ request@2.83.0:
     qs "~6.5.1"
     safe-buffer "^5.1.1"
     stringstream "~0.0.5"
+    tough-cookie "~2.3.3"
+    tunnel-agent "^0.6.0"
+    uuid "^3.1.0"
+
+request@2.87.0:
+  version "2.87.0"
+  resolved "https://registry.yarnpkg.com/request/-/request-2.87.0.tgz#32f00235cd08d482b4d0d68db93a829c0ed5756e"
+  dependencies:
+    aws-sign2 "~0.7.0"
+    aws4 "^1.6.0"
+    caseless "~0.12.0"
+    combined-stream "~1.0.5"
+    extend "~3.0.1"
+    forever-agent "~0.6.1"
+    form-data "~2.3.1"
+    har-validator "~5.0.3"
+    http-signature "~1.2.0"
+    is-typedarray "~1.0.0"
+    isstream "~0.1.2"
+    json-stringify-safe "~5.0.1"
+    mime-types "~2.1.17"
+    oauth-sign "~0.8.2"
+    performance-now "^2.1.0"
+    qs "~6.5.1"
+    safe-buffer "^5.1.1"
     tough-cookie "~2.3.3"
     tunnel-agent "^0.6.0"
     uuid "^3.1.0"
