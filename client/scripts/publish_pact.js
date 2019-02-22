@@ -4,7 +4,7 @@ const publisher = require('@pact-foundation/pact-node')
 const path = require('path')
 
 const pactTag = 'demo'
-const appVersion = 'v0.1.0'
+const appVersion = '0.1.0'
 
 publisher.publishPacts({
     pactFilesOrDirs: [
