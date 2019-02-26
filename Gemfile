@@ -29,6 +29,7 @@ gem 'puma', '~> 3.11'
 gem 'rack-cors'
 
 gem 'graphql'
+gem 'graphql-client'
 gem 'pact'
 
 group :development, :test do

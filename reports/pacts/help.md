@@ -24,4 +24,4 @@
 
 The following changes have been made since the previous distinct version of this pact, and may be responsible for verification failure:
 
-No previous distinct version was found for Pact between AuthorConsumer (vv0.1.0) and AuthorProvider
+No previous distinct version was found for Pact between AuthorConsumer (v0.1.0) and AuthorProvider
