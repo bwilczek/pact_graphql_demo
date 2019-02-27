@@ -1,0 +1,45 @@
+{
+  "consumer": {
+    "name": "DemoClient"
+  },
+  "provider": {
+    "name": "AuthorProvider"
+  },
+  "interactions": [
+    {
+      "description": "an empty request",
+      "providerState": "No body is given",
+      "request": {
+        "method": "post",
+        "path": "/graphql"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "data": {
+            "qotd": {
+              "author": "Frank Kimono",
+              "quote": "King Bruce Lee"
+            }
+          }
+        },
+        "matchingRules": {
+          "$.body.data.qotd.author": {
+            "match": "type"
+          },
+          "$.body.data.qotd.quote": {
+            "match": "type"
+          }
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}
