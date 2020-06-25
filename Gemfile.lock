@@ -110,7 +110,7 @@ GEM
       term-ansicolor (~> 1.0)
       thor
     puma (3.12.0)
-    rack (2.0.5)
+    rack (2.2.3)
     rack-cors (1.0.2)
     rack-test (0.8.3)
       rack (>= 1.0, < 3)
