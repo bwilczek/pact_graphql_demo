@@ -1,5 +1,7 @@
 # Demo for contract testing
 
+Just a random, useless change.
+
 Components:
 
 * Rails GraphQL backend (provider)
