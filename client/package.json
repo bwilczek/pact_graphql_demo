@@ -7,7 +7,7 @@
     "@pact-foundation/pact-node": "^6.21.4",
     "apollo-boost": "^0.1.16",
     "graphql": "^14.0.2",
-    "node-fetch": "^2.2.0",
+    "node-fetch": "^3.1.1",
     "path": "^0.12.7",
     "react": "^16.5.1",
     "react-apollo": "^2.1.11",
